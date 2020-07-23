@@ -1,0 +1,3 @@
+[submodule "buildbot-panda3d"]
+	path = buildbot-panda3d
+	url = https://github.com/panda3d/buildbot-panda3d
