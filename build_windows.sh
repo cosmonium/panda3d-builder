@@ -13,8 +13,8 @@ PYTHON=thirdparty/win-python3.7-x64/python.exe
 $PYTHON makepanda/makepanda.py \
 --everything \
 --arch=$PLATFORM \
- --msvc-version=14.2 \
- --windows-sdk=8.1 \
+ --msvc-version=14 \
+ --windows-sdk=7.1 \
  --no-eigen \
 --nocolor \
 --use-sse2 \
@@ -24,4 +24,5 @@ $PYTHON makepanda/makepanda.py \
 --optimize=4 \
 --override STDFLOAT_DOUBLE=1 \
 --wheel --version $VERSION \
---installer
+--installer \
+--lzma
