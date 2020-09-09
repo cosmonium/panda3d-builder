@@ -5,6 +5,7 @@ set -x
 #TODO: extract version from git
 COUNT=`git rev-list --count v1.10.6..HEAD`
 VERSION="1.10.6.dev${COUNT}+fp64+opt"
+VERSION_SHORT="1.10.6.dev${COUNT}"
 
 ABI=cp37-cp37m
 PLATFORM=x86_64
@@ -30,5 +31,5 @@ ln -s /opt/python/$ABI/bin/python /usr/bin/python3
 --lzma
 
 cd /root/thirdparty/linux-libs-x64/eigen/include
-zip -r extra-includes.zip Eigen/
-mv extra-includes.zip /build
+zip -r extra-includes.${VERSION_SHORT}.zip Eigen/
+mv extra-includes.${VERSION_SHORT}.zip /build
