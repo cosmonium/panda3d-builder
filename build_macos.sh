@@ -5,8 +5,8 @@ set -x
 PYTHON_VERSION=3.7
 
 #TODO: extract version from git
-COUNT=`git rev-list --count v1.10.7..HEAD`
-VERSION="1.10.7.dev${COUNT}+fp64+opt"
+COUNT=`git rev-list --count v1.10.8..HEAD`
+VERSION="1.10.8.dev${COUNT}+fp64+opt"
 
 PYTHON=python${PYTHON_VERSION}
 
