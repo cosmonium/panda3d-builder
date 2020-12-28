@@ -10,6 +10,9 @@ VERSION_SHORT="1.10.7.dev${COUNT}"
 ABI=cp37-cp37m
 PLATFORM=x86_64
 
+#TODO: Should update the docker image
+sed -i 's/\(mirrorlist=.*\)/\1\&protocol=http/g' /etc/yum.repos.d/epel*.repo
+
 yum install -y rpm-build fakeroot zip
 
 ln -s /opt/python/$ABI/bin/python /usr/bin/python3
