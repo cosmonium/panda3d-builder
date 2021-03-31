@@ -2,13 +2,19 @@
 
 set -x
 
-#TODO: extract version from git
-COUNT=`git rev-list --count v1.10.8..HEAD`
-VERSION="1.10.8.dev${COUNT}+fp64+opt"
-VERSION_SHORT="1.10.8.dev${COUNT}"
-
 ABI=cp37-cp37m
 PLATFORM=x86_64
+THREADS=4
+OPT=3
+PANDA_VERSION=1.10.9
+
+#TODO: extract version from git
+COUNT=`git rev-list --count v${PANDA_VERSION}..HEAD`
+VERSION="${PANDA_VERSION}.dev${COUNT}+fp64"
+
+if [[ "$OPT" == "4" ]]; then
+    VERSION="${VERSION}+opt"
+fi
 
 #TODO: Should update the docker image
 sed -i 's/\(mirrorlist=.*\)/\1\&protocol=http/g' /etc/yum.repos.d/epel*.repo
@@ -26,10 +32,11 @@ ln -s /opt/python/$ABI/bin/python /usr/bin/python3
 --use-sse2 \
 --distributor=cosmonium \
 --git-commit=`git rev-parse HEAD` \
---threads=4 \
---optimize=4 \
+--threads=$THREADS \
+--optimize=$OPT \
 --override STDFLOAT_DOUBLE=1 \
---wheel --version $VERSION \
+--wheel \
+--version $VERSION \
 --installer \
 --lzma
 
