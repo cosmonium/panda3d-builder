@@ -11,6 +11,7 @@ PANDA_VERSION=1.10.9
 #TODO: extract version from git
 COUNT=`git rev-list --count v${PANDA_VERSION}..HEAD`
 VERSION="${PANDA_VERSION}.dev${COUNT}+fp64"
+VERSION_SHORT="${PANDA_VERSION}.dev${COUNT}"
 
 if [[ "$OPT" == "4" ]]; then
     VERSION="${VERSION}+opt"
