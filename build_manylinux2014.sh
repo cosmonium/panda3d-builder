@@ -2,24 +2,25 @@
 
 set -x
 
+git config --global --add safe.directory /build
+
 ABI=cp37-cp37m
 PLATFORM=x86_64
 THREADS=4
 OPT=3
-PANDA_VERSION=1.10.9
+PANDA_VERSION=1.11.0
+CXXFLAGS="-Wno-int-in-bool-context -Wno-ignored-attributes"
 
-#TODO: extract version from git
-COUNT=`git rev-list --count v${PANDA_VERSION}..HEAD`
-VERSION="${PANDA_VERSION}.dev${COUNT}+fp64"
-VERSION_SHORT="${PANDA_VERSION}.dev${COUNT}"
+COUNT=`git rev-list --count v1.10.0..HEAD`
+SHORT=`git rev-parse --short HEAD`
+VERSION="${PANDA_VERSION}.dev${COUNT}-g${SHORT}+fp64"
+VERSION_SHORT="${PANDA_VERSION}.dev${COUNT}-g${SHORT}"
 
 if [[ "$OPT" == "4" ]]; then
     VERSION="${VERSION}+opt"
 fi
 
 #TODO: Should update the docker image
-sed -i 's/\(mirrorlist=.*\)/\1\&protocol=http/g' /etc/yum.repos.d/epel*.repo
-
 yum install -y rpm-build fakeroot zip
 
 ln -s /opt/python/$ABI/bin/python /usr/bin/python3
@@ -28,7 +29,6 @@ ln -s /opt/python/$ABI/bin/python /usr/bin/python3
 --everything \
 --no-gles --no-gles2 --no-egl \
 --python-incdir=/opt/python/$ABI/include --python-libdir=/opt/python/$ABI/lib \
---no-physx \
 --nocolor \
 --use-sse2 \
 --distributor=cosmonium \
@@ -40,6 +40,8 @@ ln -s /opt/python/$ABI/bin/python /usr/bin/python3
 --version $VERSION \
 --installer \
 --lzma
+
+mv panda3d-${PANDA_VERSION}-1.x86_64.rpm panda3d-${VERSION_SHORT}-1.x86_64.rpm
 
 cd /root/thirdparty/linux-libs-x64/eigen/include
 zip -r extra-includes.${VERSION_SHORT}.zip Eigen/
