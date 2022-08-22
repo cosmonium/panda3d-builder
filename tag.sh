@@ -8,6 +8,6 @@ VERSION="${PANDA_VERSION}.dev${COUNT}-g${SHORT}"
 
 echo "v${VERSION}"
 
-git tag -m "Panda3D baseline for cosmonium dedicated builds" v${VERSION}
+git tag -m "Panda3D baseline for cosmonium dedicated builds" cosmonium-v${VERSION}
 
-git push cosmonium v${VERSION}
+git push cosmonium cosmonium-v${VERSION}
