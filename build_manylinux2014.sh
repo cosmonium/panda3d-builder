@@ -13,8 +13,8 @@ CXXFLAGS="-Wno-int-in-bool-context -Wno-ignored-attributes"
 
 COUNT=`git rev-list --count v1.10.0..HEAD`
 SHORT=`git rev-parse --short HEAD`
-VERSION="${PANDA_VERSION}.dev${COUNT}-g${SHORT}+fp64"
-VERSION_SHORT="${PANDA_VERSION}.dev${COUNT}-g${SHORT}"
+VERSION="${PANDA_VERSION}.dev${COUNT}+fp64"
+VERSION_SHORT="${PANDA_VERSION}.dev${COUNT}"
 
 if [[ "$OPT" == "4" ]]; then
     VERSION="${VERSION}+opt"
@@ -41,7 +41,7 @@ ln -s /opt/python/$ABI/bin/python /usr/bin/python3
 --installer \
 --lzma
 
-mv panda3d-${PANDA_VERSION}-1.x86_64.rpm panda3d-${VERSION_SHORT}-1.x86_64.rpm
+mv panda3d-${PANDA_VERSION}-1.x86_64.rpm panda3d-${VERSION_SHORT}.x86_64.rpm
 
 cd /root/thirdparty/linux-libs-x64/eigen/include
 zip -r extra-includes.${VERSION_SHORT}.zip Eigen/
