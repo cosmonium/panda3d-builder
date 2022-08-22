@@ -23,7 +23,9 @@ fi
 #TODO: Should update the docker image
 yum install -y rpm-build fakeroot zip
 
+# Link Python binary and libraries so that makepanda detects them and includes Python.
 ln -s /opt/python/$ABI/bin/python /usr/bin/python3
+ln -s /opt/python/$ABI/lib /usr/lib/python3.7
 
 /opt/python/$ABI/bin/python makepanda/makepanda.py \
 --everything \
