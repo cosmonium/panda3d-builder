@@ -9,6 +9,9 @@ build-ubuntu_20_04:
 clone:
 	git clone https://www.github.com/cosmonium/panda3d.git --depth=1 --branch $(VERSION) build
 
+update:
+	cd build && git pull --rebase
+
 clean:
 	sudo rm -rf build/built build/targetroot
 
