@@ -13,7 +13,7 @@ $PYTHON makepanda/makepanda.py \
 --everything \
 --arch=$PLATFORM \
  --msvc-version=14 \
- --windows-sdk=7.1 \
+ --windows-sdk=8.1 \
  --no-eigen \
 --use-sse2 \
 --distributor=cosmonium \
