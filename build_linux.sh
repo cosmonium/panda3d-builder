@@ -2,21 +2,9 @@
 
 set -x
 
+source `dirname $0`/common.sh
+
 PYTHON_VERSION=3.8
-THREADS=4
-OPT=3
-PANDA_VERSION=1.11.0
-
-#TODO: extract version from git
-#COUNT=`git rev-list --count v${PANDA_VERSION}..HEAD`
-#DEV="dev${COUNT}"
-DEV="g$(git rev-parse --short HEAD)"
-VERSION="${PANDA_VERSION}.${DEV}+fp64"
-
-if [[ "$OPT" == "4" ]]; then
-    VERSION="${VERSION}+opt"
-fi
-
 PYTHON=python${PYTHON_VERSION}
 
 $PYTHON makepanda/makepanda.py \
