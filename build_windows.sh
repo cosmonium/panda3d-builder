@@ -6,8 +6,8 @@ source `dirname $0`/common.sh
 
 PLATFORM=amd64
 
-PYTHON_VERSION=3.8
-PYTHON=thirdparty/win-python3.7-x64/python.exe
+PYTHON_VERSION=3.9
+PYTHON=thirdparty/win-python3.9-x64/python.exe
 
 $PYTHON makepanda/makepanda.py \
 --everything \

@@ -8,7 +8,7 @@ source `dirname $0`/common.sh
 
 PLATFORM=x86_64
 
-ABI=cp37-cp37m
+ABI=cp39-cp39
 PYTHON=/opt/python/$ABI/bin/python
 
 #TODO: Should update the docker image
@@ -16,7 +16,7 @@ yum install -y rpm-build fakeroot zip
 
 # Link Python binary and libraries so that makepanda detects them and includes Python.
 ln -s /opt/python/$ABI/bin/python /usr/bin/python3
-ln -s /opt/python/$ABI/lib /usr/lib/python3.7
+ln -s /opt/python/$ABI/lib /usr/lib/python3.9
 
 $PYTHON makepanda/makepanda.py \
 --everything \

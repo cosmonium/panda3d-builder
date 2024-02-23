@@ -17,7 +17,8 @@ $PYTHON makepanda/makepanda.py \
 --threads=$THREADS \
 --optimize=$OPT \
 --override STDFLOAT_DOUBLE=1 \
---wheel \
 --version $VERSION \
+ \
+--wheel \
 --installer \
 --lzma

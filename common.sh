@@ -1,7 +1,7 @@
 THREADS=4
 OPT=3
 PANDA_VERSION=1.11.0
-CXXFLAGS="-Wno-int-in-bool-context -Wno-ignored-attributes"
+CXXFLAGS+=" -Wno-int-in-bool-context -Wno-ignored-attributes"
 
 COUNT=`git rev-list --count v1.10.0..HEAD`
 SHORT=`git rev-parse --short HEAD`

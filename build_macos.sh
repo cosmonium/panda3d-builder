@@ -4,7 +4,7 @@ set -x
 
 source `dirname $0`/common.sh
 
-PYTHON_VERSION=3.7
+PYTHON_VERSION=3.9
 PYTHON=python${PYTHON_VERSION}
 
 $PYTHON makepanda/makepanda.py \
