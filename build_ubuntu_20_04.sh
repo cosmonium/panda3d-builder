@@ -28,4 +28,4 @@ $PYTHON makepanda/makepanda.py \
 --installer \
 --lzma
 
-mv panda3d1.11_1.11.0_amd64.deb panda3d1.11_${VERSION_SHORT}_amd64.deb
+mv panda3d1.11_1.11.0_amd64.deb panda3d1.11_${VERSION_SHORT}~focal_amd64.deb
