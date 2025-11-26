@@ -8,7 +8,7 @@ source `dirname $0`/common.sh
 
 PLATFORM=x86_64
 
-PYTHON=python3.8
+PYTHON=python3.10
 
 #TODO: Should update the docker image
 apt-get install -y patchelf
@@ -28,4 +28,4 @@ $PYTHON makepanda/makepanda.py \
 --installer \
 --lzma
 
-mv panda3d1.11_1.11.0_amd64.deb panda3d1.11_${VERSION_SHORT}~focal_amd64.deb
+mv panda3d1.11_1.11.0_amd64.deb panda3d1.11_${VERSION_SHORT}~jammy_amd64.deb

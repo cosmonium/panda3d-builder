@@ -6,6 +6,9 @@ build-manylinux2014:
 build-ubuntu_20_04:
 	docker run -t --rm=true -v `pwd`:/scripts -v `pwd`/build/:/build/:rw -w /build/ cosmoniumeldee/panda3d-ubuntu_20_04 /scripts/build_ubuntu_20_04.sh
 
+build-ubuntu_22_04:
+	docker run -t --rm=true -v `pwd`:/scripts -v `pwd`/build/:/build/:rw -w /build/ cosmoniumeldee/panda3d-ubuntu_22_04 /scripts/build_ubuntu_22_04.sh
+
 clone:
 	git clone https://www.github.com/cosmonium/panda3d.git --depth=1 --branch $(VERSION) build
 

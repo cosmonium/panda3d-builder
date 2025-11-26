@@ -3,5 +3,7 @@
 
 build/
 manylinux/
+ubuntu_20_04/
+ubuntu_22_04/
 *.exe
 *.whl

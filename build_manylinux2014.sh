@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -ex
 
 git config --global --add safe.directory /build
 
@@ -8,7 +8,7 @@ source `dirname $0`/common.sh
 
 PLATFORM=x86_64
 
-ABI=cp39-cp39
+ABI=cp310-cp310
 PYTHON=/opt/python/$ABI/bin/python
 
 #TODO: Should update the docker image
@@ -16,7 +16,7 @@ yum install -y rpm-build fakeroot zip
 
 # Link Python binary and libraries so that makepanda detects them and includes Python.
 ln -s /opt/python/$ABI/bin/python /usr/bin/python3
-ln -s /opt/python/$ABI/lib /usr/lib/python3.9
+ln -s /opt/python/$ABI/lib /usr/lib/python3.10
 
 $PYTHON makepanda/makepanda.py \
 --everything \
